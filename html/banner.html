@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> position banner </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .banner {
+            width: 500px;
+            height: 500px;
+            background-color: #0079e2;
+            position: relative;
+        }
+
+        .banner .round1 {
+            position: absolute;
+            left: 50px;
+            right: 20px;
+            bottom: 40px;
+            width: 50px;
+            height: 50px;
+            background-color: #0079e2;
+            border-radius: 50%;
+            border: 15px solid #fff;
+            z-index: 3;
+        }
+
+        .banner .round2 {
+            position: absolute;
+            top: 40px;
+            right: 20px;
+            bottom: 40px;
+            width: 80px;
+            height: 80px;
+            background-color: #fff;
+            border-radius: 50%;
+            border: 15px solid #fff;
+            z-index: 1;
+        }
+
+        .banner>.business {
+            width: 400px;
+            height: 400px;
+            background-color: #003374;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            /* x, y */
+            z-index: 2;
+
+        }
+
+        .banner>.business .text {
+            position: absolute;
+            top: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .banner>.business .text p {
+            color: #fff;
+            text-align: center;
+            line-height: 1.55;
+            opacity: 0;
+
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+                /* 투명도 100% */
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeInDelay {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0;
+                /* 투명도 100% */
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+
+
+        p:nth-child(1) {
+            font-weight: 100;
+            font-size: 37px;
+            animation: fadeIn 2s ease 0s 1 normal forwards;
+            /* 애니메이션이름,지속시간,이징함수(시작은느리게가다가 중간에가속화,마지막에느려짐),애니메이션 시작 전 지연시간,실행되는 횟수*/
+        }
+
+        p:nth-child(2) {
+            font-weight: 900;
+            font-size: 50px;
+            animation: fadeInDelay 2s ease 0s 1 normal forwards;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- .banner>.business>p+p -->
+    <div class="banner">
+        <div class="business">
+            <div class="text">
+                <p>비즈니스</p>
+                <p>제안서</p>
+            </div>
+        </div>
+        <div class="round1"></div>
+        <div class="round2"></div>
+    </div>
+</body>
+
+</html>
